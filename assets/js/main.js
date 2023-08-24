@@ -1,19 +1,48 @@
-const offset = 0
-const limit = 10
-const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+const pokemonList = document.getElementById('pokemonList')
+const loadMoreButton = document.getElementById('loadMoreButton')
 
-//Promise
-//Quando fazemos uma requisição, ela demora x tempo para retornar
-//É a promessa de um resultado
-//Conforme a busca é executado, se der tudo certo, irá retornar uma resposta
+let offset = 0
+const limit = 5
+const maxRecords = 151
 
-//Caso ocorra erro, utilize o catch para fazer algum procedimento em relação a ele
 
-//Por fim, utiliza o finally para realizar algum procedimento 
-//ao final de uma requisição, independente do resultado dela
 
-//Interface de um Promise foi baseada no bloco Try-Catch-Finally
-fetch(url)
-    .then((response) => response.json())
-    .then((jsonBody) => console.log(jsonBody))    
-    .catch((error) => console.error(error))
+function loadPokemonItens(offset, limit) {
+    pokeApi.getPokemons(offset, limit).then((pokemons =  []) =>{
+        const newHtml = pokemons.map(pokemon => `
+            <li class="pokemon ${pokemon.type}">
+                <span class="number">#${pokemon.id}</span>
+                <span class="name">${pokemon.name}</span>
+
+                <div class="detail">
+                    <ol class="types">
+                        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+                    </ol>
+
+                    <img src="${pokemon.photo}" alt="${pokemon.name}">
+                </div>
+            </li>
+        `).join('')
+
+        pokemonList.innerHTML += newHtml
+    })
+}
+
+loadPokemonItens(offset, limit)
+
+loadMoreButton.addEventListener('click', () => {
+    offset += limit
+
+    const qntRecordNextPage = offset + limit
+     
+    if(qntRecordNextPage >= maxRecords) {
+        const newLimit = maxRecords - offset 
+        loadPokemonItens(offset,newLimit)
+
+        loadMoreButton.parentElement.removeChild(loadMoreButton)
+    }
+    else {
+        loadPokemonItens(offset,limit)
+    }
+    
+})

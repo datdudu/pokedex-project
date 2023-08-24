@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./assets/css/poke-colors.css">
     <link rel="stylesheet" href="./assets/css/pokedex.css">
     <title>Document</title>
 </head>
@@ -18,23 +19,20 @@
     <section class="content">
         <h1>Pokedex</h1>
 
-        <ol class="pokemons">
-            <li class="pokemon">
-                <span class="number">#001</span>
-                <span class="name">Bulbasaur</span>
-
-                <div class="detail">
-                    <ol class="types">
-                        <li class="type">grass</li>
-                        <li class="type">poison</li>
-                    </ol>
-
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="">
-                </div>
-            </li>
+        <ol id="pokemonList" class="pokemons">
         </ol>
+
+        <div class="pagination">
+            <button id="loadMoreButton" type="button">
+                Load More
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png" alt="">
+            </button>
+            
+        </div>
     </section>
-    
+
+    <script src="./assets/js/pokemon-model.js"></script>
+    <script src="./assets/js/poke-api.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
 </html>
