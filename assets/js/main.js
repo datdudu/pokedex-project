@@ -5,10 +5,8 @@ let offset = 0
 const limit = 5
 const maxRecords = 151
 
-
-
 function loadPokemonItens(offset, limit) {
-    pokeApi.getPokemons(offset, limit).then((pokemons =  []) =>{
+    pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map(pokemon => `
             <li class="pokemon ${pokemon.type}">
                 <span class="number">#${pokemon.id}</span>
@@ -21,13 +19,23 @@ function loadPokemonItens(offset, limit) {
 
                     <img src="${pokemon.photo}" alt="${pokemon.name}">
                 </div>
-                
-                <button id="detailsBtn">details</button>
-            </li>
-        `).join('')
 
-        pokemonList.innerHTML += newHtml
-    })
+                <button class="detailsBtn">details</button>
+            </li>
+        `).join('');
+
+        pokemonList.innerHTML += newHtml;
+
+        // Attach event listeners for the "details" button
+        let btnDetails = document.getElementsByClassName("detailsBtn");
+        Array.from(btnDetails).forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                modal.style.display = "block";
+                // You can also access the specific button that was clicked as 'btn'
+                console.log("Button clicked:", btn);
+            });
+        });
+    });
 }
 
 loadPokemonItens(offset, limit)
@@ -48,3 +56,13 @@ loadMoreButton.addEventListener('click', () => {
     }
     
 })
+
+
+let modal = document.getElementById("detailModal")
+let btnClose = document.getElementById("close")
+let closeModalBackdrop = document.getElementById("contentPokemon")
+
+btnClose.onclick = function() {
+    modal.style.display = "none"
+}
+

@@ -13,109 +13,123 @@
     <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./assets/css/poke-colors.css">
     <link rel="stylesheet" href="./assets/css/pokedex.css">
+    <link rel="stylesheet" href="./assets/css/details-modal.css">
     <title>Document</title>
 </head>
 <body>
-    <section class="content">
-        <h1>Pokedex</h1>
+    <section id= "detailModal" class="modal grass">
+        <header class="header">
+            <div class="menu">
+                <button id="close" class="back grass">←</button>
+                <button class="favorite grass">♡</button>
+            </div>
+
+            <div class="info">
+                <div class="info-name">
+                    <h1 class="name">Bulbasaur</h1>
+                    <div class="info-type">
+                        <p class="type grass">Grass</p>
+                        <p class="type grass">Poison</p>
+                    </div>
+                </div>
+
+                <p class="id">#001</p>
+            </div>
+        </header>
+
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="">
+
+        <section class="content">
+            <ul class="sections">
+                <li id="first-option">About</li>
+                <li>Base Stats</li>
+                <li>Evolution</li>
+                <li>Moves</li>
+            </ul>
+
+            <ul class="stats">
+                <li>
+                    <div class="stats-info">
+                        <p>Species</p>
+                        <span>Seed</span>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="stats-info">
+                        <p>Height</p>
+                        <span>2'3.6" (0.70cm)</span>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="stats-info">
+                        <p>Weight</p>
+                        <span>15.2 lbs (6.9 kg)</span>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="stats-info">
+                        <p>Abilities</p>
+                        <span>Overgrow, Cholorophyl</span>                                
+                    </div>
+                </li>
+            </ul>
+
+            <h4>Breeding</h4>
+
+            <ul class="stats">
+                <li>
+                    <div class="stats-info">
+                        <p>Gender</p>
+                        <span>Seed</span>
+                    </div>                            
+                </li>
+
+                <li>
+                    <div class="stats-info">     
+                        <p>Egg Groups</p>
+                        <span>Monster</span>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="stats-info">
+                        <p>Egg Cycle</p>
+                        <span>grass</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </section>
+
+    <section id="contentPokemon"class="content">
+        <h1>Pokedex - por datdudu</h1>
 
         <ol id="pokemonList" class="pokemons">
-            <section class="modal grass">
-                <header class="header">
-                    <div class="menu">
-                        <button class="back grass">←</button>
-                        <button class="favorite grass">♡</button>
-                    </div>
-
-                    <div class="info">
-                        <div class="info-name">
-                            <h1 class="name">Bulbasaur</h1>
-                            <div class="info-type">
-                                <p class="type grass">Grass</p>
-                                <p class="type grass">Poison</p>
-                            </div>
-                        </div>
-
-                        <p class="id">#001</p>
-                    </div>
-
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png" alt="">
-                </header>
-
-                <section class="content">
-                    <ul class="sections">
-                        <li id="first-option">About</li>
-                        <li>Base Stats</li>
-                        <li>Evolution</li>
-                        <li>Moves</li>
-                    </ul>
-
-                    <ul class="stats">
-                        <li>
-                            <div class="stats-info">
-                                <p>Species</p>
-                                <span>Seed</span>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="stats-info">
-                                <p>Height</p>
-                                <span>2'3.6" (0.70cm)</span>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="stats-info">
-                                <p>Weight</p>
-                                <span>15.2 lbs (6.9 kg)</span>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="stats-info">
-                                <p>Abilities</p>
-                                <span>Overgrow, Cholorophyl</span>                                
-                            </div>
-                        </li>
-                    </ul>
-
-                    <h4>Breeding</h4>
-
-                    <ul class="stats">
-                        <li>
-                            <div class="stats-info">
-                                <p>Gender</p>
-                                <span>Seed</span>
-                            </div>                            
-                        </li>
-
-                        <li>
-                            <div class="stats-info">     
-                                <p>Egg Groups</p>
-                                <span>Monster</span>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="stats-info">
-                                <p>Egg Cycle</p>
-                                <span>grass</span>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-            </section>
+            
         </ol>
-
+        
         <div class="pagination">
             <button id="loadMoreButton" type="button">
                 Load More
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png" alt="">
             </button>     
         </div>
-    </section>
 
+        <footer class="links-footer">
+            <p>Me encontre em:</p>
+
+            <a href="https://github.com/datdudu">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/640px-Octicons-mark-github.svg.png" alt="">
+            </a>
+
+            <a href="https://www.linkedin.com/in/c-eduardocarvalho/">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png" alt="">
+            </a>
+        </footer>
+    </section>
     <script src="./assets/js/pokemon-model.js"></script>
     <script src="./assets/js/poke-api.js"></script>
     <script src="./assets/js/main.js"></script>
